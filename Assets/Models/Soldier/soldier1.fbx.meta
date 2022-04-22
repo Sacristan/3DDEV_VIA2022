@@ -84,7 +84,7 @@ ModelImporter:
     skeleton:
     - name: soldier1(Clone)
       parentName: 
-      position: {x: 0.0009909787, y: 0, z: 0.04292856}
+      position: {x: 0.0015512366, y: -1.1694916, z: 0.03652327}
       rotation: {x: -6.384438e-17, y: 0.9990487, z: 6.384438e-17, w: 0.043609098}
       scale: {x: 0.99999994, y: 1, z: 0.99999994}
     armTwist: 0.5
