@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public event System.Action OnDied;
+
     protected float health = 100;
     protected bool isDead = false;
 
@@ -17,5 +19,6 @@ public abstract class Character : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+        OnDied?.Invoke();
     }
 }
