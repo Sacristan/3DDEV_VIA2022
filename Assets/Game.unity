@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3cf697b712c2b4f87189784cf403ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeEnoughDistance: 3
+  closeEnoughDistance: 6
   damagePerSecond: 10
 --- !u!1 &1028513131
 GameObject:

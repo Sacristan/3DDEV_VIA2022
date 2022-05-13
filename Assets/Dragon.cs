@@ -6,6 +6,12 @@ public class Dragon : Character
 {
     [SerializeField] float closeEnoughDistance = 3f;
     [SerializeField] float damagePerSecond = 10f;
+    Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponentInChildren<Animator>();
+    }
 
     private void Update()
     {
@@ -16,6 +22,17 @@ public class Dragon : Character
         if (distanceToHero < closeEnoughDistance)
         {
             GameManager.instance.Hero.AddDamage(Time.deltaTime * damagePerSecond);
+            UpdateAttacking(true);
         }
+        else
+        {
+            UpdateAttacking(false);
+        }
+    }
+
+    void UpdateAttacking(bool flag)
+    {
+        bool isAttacking = _animator.GetBool("isAttacking");
+        if (flag != isAttacking) _animator.SetBool("isAttacking", flag);
     }
 }
