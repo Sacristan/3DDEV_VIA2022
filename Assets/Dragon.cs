@@ -8,31 +8,56 @@ public class Dragon : Character
     [SerializeField] float damagePerSecond = 10f;
     Animator _animator;
 
+    enum State
+    {
+        None,
+        Idle,
+        Attacking
+    }
+
+    State _state = State.None;
+
+    State CurrentState
+    {
+        get => _state;
+        set
+        {
+            if (_state != value)
+            {
+                _state = value;
+                UpdateState();
+            }
+        }
+    }
+
     private void Start()
     {
         _animator = GetComponentInChildren<Animator>();
+        CurrentState = State.Idle;
     }
 
     private void Update()
     {
         Vector3 heroPosition = GameManager.instance.Hero.transform.position;
         float distanceToHero = Vector3.Distance(transform.position, heroPosition);
-        // Debug.Log("dist to hero: " + distanceToHero);
 
         if (distanceToHero < closeEnoughDistance)
         {
             GameManager.instance.Hero.AddDamage(Time.deltaTime * damagePerSecond);
-            UpdateAttacking(true);
+            CurrentState = State.Attacking;
         }
         else
         {
-            UpdateAttacking(false);
+            CurrentState = State.Idle;
         }
     }
 
-    void UpdateAttacking(bool flag)
+    void UpdateState()
     {
-        bool isAttacking = _animator.GetBool("isAttacking");
-        if (flag != isAttacking) _animator.SetBool("isAttacking", flag);
+        Debug.Log("UpdateState: " + CurrentState);
+
+        int animState = _animator.GetInteger("state");
+        if ((int)CurrentState != animState) _animator.SetInteger("state", (int)CurrentState);
     }
+
 }
