@@ -6,10 +6,16 @@ public abstract class Character : MonoBehaviour
 {
     public event System.Action OnDied;
 
-    protected float health = 100;
+    [SerializeField] protected float maxHealth = 100;
+    protected float health = 0;
     protected bool isDead = false;
 
-    public void AddDamage(float damage)
+    protected virtual void Start()
+    {
+        health = maxHealth;
+    }
+
+    public virtual void AddDamage(float damage)
     {
         health -= damage;
         if (health <= 0) Die();

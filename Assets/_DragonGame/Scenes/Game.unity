@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3cf697b712c2b4f87189784cf403ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   closeEnoughDistance: 6
   damagePerSecond: 10
 --- !u!1 &1028513131
@@ -995,6 +996,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+--- !u!1 &2081798100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 319739640995670445, guid: 0ff079691af0e9645b577ec9703868bc, type: 3}
+  m_PrefabInstance: {fileID: 319739640618007869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081798103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081798100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6f2c2eb3bb8344ba58d32a2a26e8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &319739640618007869
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -30,8 +30,9 @@ public class Dragon : Character
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         _animator = GetComponentInChildren<Animator>();
         CurrentState = State.Idle;
     }
@@ -43,7 +44,7 @@ public class Dragon : Character
 
         if (distanceToHero < closeEnoughDistance)
         {
-            GameManager.instance.Hero.AddDamage(Time.deltaTime * damagePerSecond);
+            // GameManager.instance.Hero.AddDamage(Time.deltaTime * damagePerSecond);
             CurrentState = State.Attacking;
         }
         else
@@ -60,4 +61,8 @@ public class Dragon : Character
         if ((int)CurrentState != animState) _animator.SetInteger("state", (int)CurrentState);
     }
 
+    public void Bite()
+    {
+        if (CurrentState == State.Attacking) GameManager.instance.Hero.AddDamage(damagePerSecond);
+    }
 }
