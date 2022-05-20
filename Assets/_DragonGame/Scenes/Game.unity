@@ -1214,18 +1214,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7461020310777896248, guid: 938be564c3a9a6942936d713f862736f, type: 3}
-      propertyPath: m_Height
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7461020310777896248, guid: 938be564c3a9a6942936d713f862736f, type: 3}
-      propertyPath: m_Radius
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 7461020310777896248, guid: 938be564c3a9a6942936d713f862736f, type: 3}
-      propertyPath: m_Center.y
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 7654837964887285102, guid: 938be564c3a9a6942936d713f862736f, type: 3}
       propertyPath: m_RootOrder
       value: 6
