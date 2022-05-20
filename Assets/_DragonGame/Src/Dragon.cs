@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Dragon : Character
 {
     [SerializeField] float closeEnoughDistance = 3f;
     [SerializeField] float damagePerSecond = 10f;
     Animator _animator;
+    NavMeshAgent _navmeshAgent;
 
     enum State
     {
-        None,
-        Idle,
-        Attacking
+        None = 0,
+        Idle = 1,
+        Following = 2,
+        Attacking = 3
     }
 
     State _state = State.None;
@@ -34,6 +37,7 @@ public class Dragon : Character
     {
         base.Start();
         _animator = GetComponentInChildren<Animator>();
+        _navmeshAgent = GetComponent<NavMeshAgent>();
         CurrentState = State.Idle;
     }
 
@@ -44,12 +48,20 @@ public class Dragon : Character
 
         if (distanceToHero < closeEnoughDistance)
         {
+            _navmeshAgent.velocity = Vector3.zero;
             // GameManager.instance.Hero.AddDamage(Time.deltaTime * damagePerSecond);
             CurrentState = State.Attacking;
         }
         else
         {
-            CurrentState = State.Idle;
+            CurrentState = State.Following;
+        }
+
+        switch (CurrentState)
+        {
+            case State.Following:
+                _navmeshAgent.SetDestination(heroPosition);
+                break;
         }
     }
 
