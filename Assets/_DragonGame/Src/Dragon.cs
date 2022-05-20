@@ -12,6 +12,7 @@ public class Dragon : Character
 
     Animator _animator;
     NavMeshAgent _navmeshAgent;
+    AudioSource _audioSource;
 
     public Vector3 HeroPosition => GameManager.instance.Hero.transform.position + Vector3.up * 0.5f;
 
@@ -43,6 +44,7 @@ public class Dragon : Character
         base.Start();
         _animator = GetComponentInChildren<Animator>();
         _navmeshAgent = GetComponent<NavMeshAgent>();
+        _audioSource = GetComponent<AudioSource>();
         CurrentState = State.Idle;
     }
 
@@ -89,7 +91,12 @@ public class Dragon : Character
 
     public void Bite()
     {
-        if (CurrentState == State.Attacking) GameManager.instance.Hero.AddDamage(damagePerSecond);
+        if (CurrentState == State.Attacking)
+        {
+            GameManager.instance.Hero.AddDamage(damagePerSecond);
+            _audioSource.Play();
+        }
+
     }
 
     bool CanSeePlayer()
