@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.UI;
 
 public class Hero : Character
 {
     ThirdPersonController _thirdPersonController;
 
     Animator _animator;
+
+    [SerializeField] Slider healthSlider;
 
     protected override void Start()
     {
@@ -28,6 +31,11 @@ public class Hero : Character
     {
         base.AddDamage(damage);
         if (!isDead) _animator.SetTrigger("GetHit");
+    }
+
+    protected override void UpdateHealth()
+    {
+        healthSlider.value = HealthPercentage;
     }
 
 }
