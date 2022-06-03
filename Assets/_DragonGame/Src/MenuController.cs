@@ -7,15 +7,24 @@ public static class Scenes
 {
     public const string Menu = "Menu";
     public const string Game = "Game";
+
+    public static void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
 
 public class MenuController : MonoBehaviour
 {
-
+    private void Start()
+    {
+        GameCursor.Enable(true);
+    }
+    
     public void PlayGame()
     {
         Debug.Log("Play Game");
-        SceneManager.LoadScene(Scenes.Game);
+        Scenes.LoadScene(Scenes.Game);
     }
 
     public void QuitGame()
