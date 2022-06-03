@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_DragonGame/Scenes/Menu.unity
+    guid: a52fe71ae730417428cee3ec0f5eb6db
+  - enabled: 1
     path: Assets/_DragonGame/Scenes/Game.unity
     guid: 573be91038569434ba0cc90061ac19e4
   m_configObjects: {}
